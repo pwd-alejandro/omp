@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import { SUBSTACK_SUBSCRIBE_URL } from "../config";
 
 // Day 0 placeholder homepage — proves the brand renders end to end (type, paper/ink,
 // vermillion accent, mono metadata). Real homepage arrives on Day 3 from the design
@@ -27,9 +28,7 @@ const firstPiece =
 
     <div class="actions">
       <a class="btn-primary" href={firstPiece}>Read the first piece</a>
-      <a class="btn-secondary" href="https://onemillionpieces.substack.com/subscribe">
-        Subscribe
-      </a>
+      <a class="btn-secondary" href={SUBSTACK_SUBSCRIBE_URL}>Subscribe</a>
     </div>
 
     <p class="omp-mono meta">DAY 0 · SITE SCAFFOLD · ONEMILLIONPIECES.COM</p>

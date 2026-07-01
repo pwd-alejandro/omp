@@ -95,10 +95,14 @@ Save a snapshot of this feed as the test fixture for the ingestion module.
 
 ## 7. Current status
 
-🏗 **Day 0 in progress.** Astro 7 + TypeScript scaffolded; design-system tokens wired into
-`src/styles/ds/`; placeholder homepage (`src/pages/index.astro`) renders the brand; ESLint +
-Prettier configured; `pnpm build` / `lint` / `format:check` all green. **Remaining:** connect
-the repo to Cloudflare Pages (account action) and verify the `*.pages.dev` deploy. Then Day 1
-(RSS ingestion) in [`docs/05-roadmap.md`](./docs/05-roadmap.md).
+🏗 **Day 1 complete.** Site is live on Cloudflare Pages (`omp-1pg.pages.dev`, auto-deploys on
+push to `main`). RSS ingestion built in `src/lib/substack/` (`getFeed()`/`getPosts()` →
+typed `Post[]`): fetch + parse + sanitize + slug + paywall detection + bundled last-good-feed
+fallback. 15 Vitest tests green. Verify page at `/debug/posts` (noindex; delete once real
+pages exist). Homepage is still the Day 0 placeholder. **Next: Day 2** (wire the design-system
+header/nav/footer + self-host fonts), then **Day 3** (homepage + article index from live posts).
 
-Commands: `pnpm dev` (local), `pnpm build` (→ `dist/`), `pnpm lint`, `pnpm format`.
+Content pipeline: pages import from `src/lib/substack` and call `getFeed()`/`getPosts()` in
+frontmatter (runs at build). URLs come from `src/config.ts` (env-backed) — never hard-code them.
+
+Commands: `pnpm dev` · `pnpm build` (→ `dist/`) · `pnpm test` · `pnpm lint` · `pnpm format`.

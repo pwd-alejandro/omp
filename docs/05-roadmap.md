@@ -22,14 +22,14 @@ Goal: an empty-but-real Astro site live on the internet at a temporary URL.
 
 Goal: real Substack posts flowing into the site as data.
 
-- [ ] Build the ingestion module: fetch → parse → normalize → typed `Post[]` (per [`03`](./03-content-sync.md)).
-- [ ] Implement paywall/truncation detection (`isPaywalled`).
-- [ ] Add HTML sanitization for `bodyHtml`.
-- [ ] Derive stable slugs from the Substack link.
-- [ ] Add the last-good-feed fallback so builds never ship empty.
-- [ ] Wire posts into an Astro content collection.
-- [ ] Write a couple of tests against a saved sample feed (free + paid item).
-- [ ] 🟢 **Verify:** a debug page lists all posts pulled from the live feed with correct fields.
+- [x] Build the ingestion module: fetch → parse → normalize → typed `Post[]` (`src/lib/substack/`).
+- [x] Implement paywall/truncation detection (`isPaywalled`) — marker + conservative length heuristic.
+- [x] Add HTML sanitization for `bodyHtml` (strips Substack's subscribe/paywall widgets, hardens links, lazy-loads images).
+- [x] Derive stable slugs from the Substack link.
+- [x] Add the last-good-feed fallback (bundled `__fixtures__/substack-feed.sample.xml`) so builds never ship empty.
+- [x] Expose posts via `getFeed()`/`getPosts()` (plain typed module — simpler/more testable than a content collection; pages call it directly).
+- [x] Tests against the saved sample feed (parse, normalize, paywall free/paid cases) — 15 passing via Vitest.
+- [x] 🟢 **Verify:** `/debug/posts` lists the live post with correct fields (source: LIVE, slug, author, isPaywalled=false, 6212-char sanitized body).
 
 ## Day 2 — Wire in the design system & core layout
 

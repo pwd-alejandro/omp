@@ -1,0 +1,129 @@
+---
+// Day 1 verification page — lists everything the ingestion pipeline pulls from the
+// Substack feed. Not part of the real site (noindex); a scaffold to confirm parsing,
+// normalization, paywall detection, and the fallback all work. Safe to delete later.
+import { getFeed } from "../../lib/substack";
+
+const { posts, source, fetchedAt } = await getFeed();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Debug · Substack ingestion</title>
+    <style>
+      body {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        max-width: 60rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        color: #1b1712;
+        background: #f7f3ea;
+        line-height: 1.5;
+      }
+      h1 {
+        font-size: 1.25rem;
+      }
+      .meta {
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #d4cbb7;
+        border-radius: 6px;
+        background: #fcfaf4;
+      }
+      .badge {
+        font-weight: 700;
+        color: #fff;
+        padding: 0.1rem 0.5rem;
+        border-radius: 999px;
+      }
+      .live {
+        background: #4a6b3e;
+      }
+      .fallback {
+        background: #c9992a;
+      }
+      article {
+        border: 1px solid #d4cbb7;
+        border-radius: 6px;
+        padding: 1rem;
+        margin: 1rem 0;
+        background: #fcfaf4;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 9rem 1fr;
+        gap: 0.25rem 1rem;
+        word-break: break-word;
+      }
+      .k {
+        color: #8a857b;
+      }
+      .paid {
+        color: #b23a2e;
+        font-weight: 700;
+      }
+      .free {
+        color: #4a6b3e;
+        font-weight: 700;
+      }
+      .snippet {
+        max-height: 8rem;
+        overflow: auto;
+        background: #f0ebde;
+        padding: 0.5rem;
+        border-radius: 4px;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Substack ingestion — {posts.length} post(s)</h1>
+    <p class="meta">
+      Feed source:
+      <span class:list={["badge", source]}>{source.toUpperCase()}</span>
+      &nbsp;·&nbsp; fetched at {fetchedAt.toISOString()}
+      {
+        source === "fallback" &&
+          " — live fetch failed; showing the bundled last-good feed."
+      }
+    </p>
+
+    {
+      posts.map((post) => (
+        <article>
+          <div class="row">
+            <span class="k">title</span>
+            <strong>{post.title}</strong>
+            <span class="k">slug</span>
+            <span>{post.slug}</span>
+            <span class="k">author</span>
+            <span>{post.author}</span>
+            <span class="k">publishedAt</span>
+            <span>{post.publishedAt.toISOString()}</span>
+            <span class="k">isPaywalled</span>
+            <span class={post.isPaywalled ? "paid" : "free"}>
+              {String(post.isPaywalled)}
+            </span>
+            <span class="k">tags</span>
+            <span>{post.tags.length ? post.tags.join(", ") : "—"}</span>
+            <span class="k">coverImage</span>
+            <span>{post.coverImage ?? "—"}</span>
+            <span class="k">substackUrl</span>
+            <span>{post.substackUrl}</span>
+            <span class="k">excerpt</span>
+            <span>{post.excerpt}</span>
+            <span class="k">bodyHtml</span>
+            <span>{post.bodyHtml.length} chars</span>
+          </div>
+          <p class="k" style="margin:.75rem 0 .25rem">
+            body preview (rendered):
+          </p>
+          <div class="snippet" set:html={post.bodyHtml} />
+        </article>
+      ))
+    }
+  </body>
+</html>
