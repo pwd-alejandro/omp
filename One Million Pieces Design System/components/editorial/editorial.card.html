@@ -1,0 +1,39 @@
+<!-- @dsCard group="Components" viewport="720x460" name="Editorial — Kicker, Headline, Byline, Card, Quote, Source" subtitle="The reading-page building blocks" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-page); padding: 28px 32px; }
+  .cols { display:grid; grid-template-columns: 1.3fr 1fr; gap: 40px; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+  <div class="cols">
+    <div>
+      <div class="omp-kicker" style="margin-bottom:8px;">Investigation · Housing</div>
+      <h2 class="omp-h2" style="margin:0 0 10px;">The 4.2 million records behind an eviction crisis</h2>
+      <p class="omp-body" style="margin:0 0 14px;">We collected every filing in the county since 2016 <a href="#" style="display:inline-flex;align-items:center;gap:5px;vertical-align:baseline;text-decoration:none;font-family:var(--font-mono);font-size:11px;font-weight:500;padding:2px 6px;border-radius:var(--radius-xs);color:var(--text-accent);background:var(--vermillion-100);border:1px solid var(--vermillion-200);">3 County records</a>. The paper record tells a story the official numbers left out.</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <span style="font-family:var(--font-sans);font-weight:600;font-size:13.5px;color:var(--text-primary);">By Dana Okonkwo &amp; R. Mehta</span>
+          <span style="font-family:var(--font-mono);font-size:11.5px;color:var(--text-tertiary);">12 MIN READ · UPDATED 2H AGO</span>
+        </div>
+      </div>
+      <blockquote style="margin:26px 0 0;padding-left:20px;border-left:3px solid var(--vermillion-600);">
+        <p style="font-family:var(--font-serif);font-style:italic;font-size:22px;line-height:1.28;letter-spacing:-0.01em;color:var(--text-primary);margin:0;">The official count missed one in every three filings.</p>
+        <cite style="display:block;margin-top:10px;font-style:normal;font-family:var(--font-sans);font-weight:600;font-size:12.5px;color:var(--text-tertiary);">— County housing report, 2024</cite>
+      </blockquote>
+    </div>
+    <div>
+      <div style="width:100%;aspect-ratio:3/2;background:var(--surface-inset);border-radius:var(--radius-sm);margin-bottom:12px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:10px;color:var(--text-faint);letter-spacing:.1em;">IMAGE</div>
+      <div class="omp-kicker" style="margin-bottom:6px;">Analysis</div>
+      <h3 style="font-family:var(--font-serif);font-weight:540;font-size:20px;line-height:1.14;letter-spacing:-0.012em;margin:0 0 8px;color:var(--text-primary);">How 30,000 precincts actually voted</h3>
+      <p style="font-family:var(--font-serif);font-size:14px;line-height:1.5;color:var(--text-secondary);margin:0;">Not the map you were shown on election night.</p>
+      <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-tertiary);margin-top:10px;">15 MIN · INTERACTIVE</div>
+    </div>
+  </div>
+</body>
+</html>

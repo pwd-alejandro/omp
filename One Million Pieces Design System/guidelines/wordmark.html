@@ -1,0 +1,79 @@
+<!-- @dsCard group="Brand" viewport="900x560" name="Wordmark & identity" subtitle="Mark construction, lockups, clearspace, misuse" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wordmark & Identity — One Million Pieces</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--surface-page); color: var(--text-primary); padding: 48px 56px; }
+  rect.a { fill: var(--vermillion-600); } rect.i { fill: var(--ink-900); }
+  .doc-h { font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-accent); }
+  h1 { font-family: var(--font-serif); font-weight: 460; font-size: 40px; letter-spacing: -0.02em; margin: 10px 0 6px; }
+  .sub { font-family: var(--font-serif); font-size: 18px; color: var(--text-secondary); margin: 0 0 40px; max-width: 60ch; line-height: 1.5; }
+  .sec { border-top: 2px solid var(--ink-900); padding-top: 12px; margin-top: 44px; }
+  .sec-t { font-family: var(--font-sans); font-weight: 600; font-size: 15px; }
+  .sec-d { font-family: var(--font-serif); font-size: 15px; color: var(--text-secondary); margin: 6px 0 24px; max-width: 62ch; line-height: 1.5; }
+  .grid { display: flex; flex-wrap: wrap; gap: 28px; }
+  .cell { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 26px 28px; display: flex; flex-direction: column; gap: 16px; }
+  .cap { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint); }
+  .word { font-family: var(--font-serif); font-weight: 560; letter-spacing: -0.015em; }
+  .lock { display: flex; align-items: center; gap: 15px; }
+  .dont { border-color: var(--vermillion-200); }
+  .dont .cap { color: var(--vermillion-700); }
+</style>
+</head>
+<body>
+  <div class="doc-h">Brand · Identity</div>
+  <h1>Wordmark &amp; identity</h1>
+  <p class="sub">A mosaic of pieces that resolves into a whole — set beside Newsreader, the wordmark reads as considered, literary and exact. Two tiles carry vermillion; the rest is ink.</p>
+
+  <!-- Construction -->
+  <div class="sec"><div class="sec-t">The mark</div></div>
+  <div class="sec-d">A 4×4 grid. Twelve tiles are set — nine ink, three vermillion — leaving four gaps. The gaps are the point: the picture is never quite complete until you collect the last pieces. Build on a 9px tile with a 2px channel; never redraw freehand.</div>
+  <div class="grid">
+    <div class="cell">
+      <span class="cap">Construction grid</span>
+      <svg width="120" height="120" viewBox="0 0 42 42">
+        <g opacity="0.12">
+          <line x1="0" y1="10.5" x2="42" y2="10.5" stroke="#1B1712"/><line x1="0" y1="21.5" x2="42" y2="21.5" stroke="#1B1712"/><line x1="0" y1="32.5" x2="42" y2="32.5" stroke="#1B1712"/>
+          <line x1="10.5" y1="0" x2="10.5" y2="42" stroke="#1B1712"/><line x1="21.5" y1="0" x2="21.5" y2="42" stroke="#1B1712"/><line x1="32.5" y1="0" x2="32.5" y2="42" stroke="#1B1712"/>
+        </g>
+        <rect class="i" x="0" y="0" width="9" height="9"/><rect class="i" x="11" y="0" width="9" height="9"/><rect class="i" x="33" y="0" width="9" height="9"/><rect class="i" x="0" y="11" width="9" height="9"/><rect class="a" x="11" y="11" width="9" height="9"/><rect class="i" x="22" y="11" width="9" height="9"/><rect class="i" x="11" y="22" width="9" height="9"/><rect class="a" x="22" y="22" width="9" height="9"/><rect class="i" x="33" y="22" width="9" height="9"/><rect class="i" x="0" y="33" width="9" height="9"/><rect class="i" x="22" y="33" width="9" height="9"/><rect class="a" x="33" y="33" width="9" height="9"/>
+      </svg>
+    </div>
+    <div class="cell">
+      <span class="cap">Clearspace = one tile</span>
+      <div style="position:relative;padding:11px;">
+        <div style="position:absolute;inset:0;border:1px dashed var(--border-default);border-radius:4px;"></div>
+        <svg width="88" height="88" viewBox="0 0 42 42"><rect class="i" x="0" y="0" width="9" height="9"/><rect class="i" x="11" y="0" width="9" height="9"/><rect class="i" x="33" y="0" width="9" height="9"/><rect class="i" x="0" y="11" width="9" height="9"/><rect class="a" x="11" y="11" width="9" height="9"/><rect class="i" x="22" y="11" width="9" height="9"/><rect class="i" x="11" y="22" width="9" height="9"/><rect class="a" x="22" y="22" width="9" height="9"/><rect class="i" x="33" y="22" width="9" height="9"/><rect class="i" x="0" y="33" width="9" height="9"/><rect class="i" x="22" y="33" width="9" height="9"/><rect class="a" x="33" y="33" width="9" height="9"/></svg>
+      </div>
+    </div>
+    <div class="cell" style="background:var(--ink-900);">
+      <span class="cap" style="color:rgba(247,243,234,.5)">Reversed</span>
+      <svg width="88" height="88" viewBox="0 0 42 42"><rect style="fill:var(--paper-50)" x="0" y="0" width="9" height="9"/><rect style="fill:var(--paper-50)" x="11" y="0" width="9" height="9"/><rect style="fill:var(--paper-50)" x="33" y="0" width="9" height="9"/><rect style="fill:var(--paper-50)" x="0" y="11" width="9" height="9"/><rect class="a" x="11" y="11" width="9" height="9"/><rect style="fill:var(--paper-50)" x="22" y="11" width="9" height="9"/><rect style="fill:var(--paper-50)" x="11" y="22" width="9" height="9"/><rect class="a" x="22" y="22" width="9" height="9"/><rect style="fill:var(--paper-50)" x="33" y="22" width="9" height="9"/><rect style="fill:var(--paper-50)" x="0" y="33" width="9" height="9"/><rect style="fill:var(--paper-50)" x="22" y="33" width="9" height="9"/><rect class="a" x="33" y="33" width="9" height="9"/></svg>
+    </div>
+  </div>
+
+  <!-- Lockups -->
+  <div class="sec"><div class="sec-t">Lockups</div></div>
+  <div class="sec-d">Stacked for the masthead, horizontal for wide chrome, short (OMP) where space is tight, mark alone for avatars and favicons.</div>
+  <div class="grid">
+    <div class="cell"><span class="cap">Stacked</span><div class="lock"><svg width="40" height="40" viewBox="0 0 42 42"><rect class="i" x="0" y="0" width="9" height="9"/><rect class="i" x="11" y="0" width="9" height="9"/><rect class="i" x="33" y="0" width="9" height="9"/><rect class="i" x="0" y="11" width="9" height="9"/><rect class="a" x="11" y="11" width="9" height="9"/><rect class="i" x="22" y="11" width="9" height="9"/><rect class="i" x="11" y="22" width="9" height="9"/><rect class="a" x="22" y="22" width="9" height="9"/><rect class="i" x="33" y="22" width="9" height="9"/><rect class="i" x="0" y="33" width="9" height="9"/><rect class="i" x="22" y="33" width="9" height="9"/><rect class="a" x="33" y="33" width="9" height="9"/></svg><span class="word" style="font-size:26px;line-height:.98;">One&nbsp;Million<br>Pieces</span></div></div>
+    <div class="cell"><span class="cap">Horizontal</span><div class="lock"><svg width="24" height="24" viewBox="0 0 42 42"><rect class="i" x="0" y="0" width="9" height="9"/><rect class="i" x="11" y="0" width="9" height="9"/><rect class="i" x="33" y="0" width="9" height="9"/><rect class="i" x="0" y="11" width="9" height="9"/><rect class="a" x="11" y="11" width="9" height="9"/><rect class="i" x="22" y="11" width="9" height="9"/><rect class="i" x="11" y="22" width="9" height="9"/><rect class="a" x="22" y="22" width="9" height="9"/><rect class="i" x="33" y="22" width="9" height="9"/><rect class="i" x="0" y="33" width="9" height="9"/><rect class="i" x="22" y="33" width="9" height="9"/><rect class="a" x="33" y="33" width="9" height="9"/></svg><span class="word" style="font-size:17px;">One Million Pieces</span></div></div>
+    <div class="cell"><span class="cap">Short</span><div class="lock"><svg width="22" height="22" viewBox="0 0 42 42"><rect class="i" x="0" y="0" width="9" height="9"/><rect class="i" x="11" y="0" width="9" height="9"/><rect class="i" x="33" y="0" width="9" height="9"/><rect class="i" x="0" y="11" width="9" height="9"/><rect class="a" x="11" y="11" width="9" height="9"/><rect class="i" x="22" y="11" width="9" height="9"/><rect class="i" x="11" y="22" width="9" height="9"/><rect class="a" x="22" y="22" width="9" height="9"/><rect class="i" x="33" y="22" width="9" height="9"/><rect class="i" x="0" y="33" width="9" height="9"/><rect class="i" x="22" y="33" width="9" height="9"/><rect class="a" x="33" y="33" width="9" height="9"/></svg><span class="word" style="font-size:20px;font-weight:600;">OMP</span></div></div>
+    <div class="cell"><span class="cap">Number mark</span><div class="lock"><span style="font-family:var(--font-mono);font-weight:500;font-size:26px;letter-spacing:-0.02em;">10<span style="font-size:15px;vertical-align:super;">6</span></span></div></div>
+  </div>
+
+  <!-- Misuse -->
+  <div class="sec"><div class="sec-t">Misuse</div></div>
+  <div class="sec-d">The identity holds because it is disciplined. Don't:</div>
+  <div class="grid">
+    <div class="cell dont"><span class="cap">Don't recolour the tiles</span><div class="lock"><svg width="34" height="34" viewBox="0 0 42 42"><rect style="fill:#2B6C8F" x="0" y="0" width="9" height="9"/><rect style="fill:#C9821A" x="11" y="0" width="9" height="9"/><rect style="fill:#4A6B3E" x="33" y="0" width="9" height="9"/><rect style="fill:#6E4B63" x="0" y="11" width="9" height="9"/><rect style="fill:#2B6C8F" x="11" y="11" width="9" height="9"/><rect style="fill:#C9821A" x="22" y="11" width="9" height="9"/><rect style="fill:#4A6B3E" x="11" y="22" width="9" height="9"/><rect style="fill:#6E4B63" x="22" y="22" width="9" height="9"/><rect style="fill:#2B6C8F" x="33" y="22" width="9" height="9"/><rect style="fill:#C9821A" x="0" y="33" width="9" height="9"/><rect style="fill:#4A6B3E" x="22" y="33" width="9" height="9"/><rect style="fill:#6E4B63" x="33" y="33" width="9" height="9"/></svg></div></div>
+    <div class="cell dont"><span class="cap">Don't set in another face</span><div class="lock"><span style="font-family:var(--font-mono);font-weight:600;font-size:20px;">One Million Pieces</span></div></div>
+    <div class="cell dont"><span class="cap">Don't stretch or skew</span><div class="lock"><span class="word" style="font-size:22px;transform:scaleX(1.6);display:inline-block;transform-origin:left;">Pieces</span></div></div>
+  </div>
+</body>
+</html>

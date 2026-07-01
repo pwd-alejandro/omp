@@ -1,0 +1,88 @@
+/* One Million Pieces — Typography
+   Newsreader (serif) · Libre Franklin (sans) · Spline Sans Mono (mono)
+   Serif carries reading + headlines; sans carries labels/UI; mono carries data. */
+
+:root {
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans:  "Libre Franklin", system-ui, -apple-system, sans-serif;
+  --font-mono:  "Spline Sans Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Type scale (px) */
+  --text-display: 56px;   /* front-page hero headline */
+  --text-h1:      40px;
+  --text-h2:      30px;
+  --text-h3:      23px;
+  --text-h4:      19px;
+  --text-body-lg: 19px;   /* long-form article body */
+  --text-body:    17px;
+  --text-small:   15px;
+  --text-caption: 13px;
+  --text-micro:   11px;   /* mono kickers / labels */
+
+  /* Line heights */
+  --lh-tight:   1.02;
+  --lh-snug:    1.12;
+  --lh-normal:  1.35;
+  --lh-reading: 1.62;
+
+  /* Weights */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold: 600;
+  --weight-bold:    700;
+
+  /* Tracking */
+  --track-display: -0.022em;
+  --track-head:    -0.015em;
+  --track-label:   0.14em;   /* uppercase mono labels */
+}
+
+/* ---- Utility classes (optional convenience for cards / kits) --------- */
+
+.omp-display {
+  font-family: var(--font-serif);
+  font-weight: 460;
+  font-size: var(--text-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--track-display);
+  color: var(--text-primary);
+}
+.omp-h1 { font-family: var(--font-serif); font-weight: 460; font-size: var(--text-h1); line-height: var(--lh-snug); letter-spacing: var(--track-head); color: var(--text-primary); }
+.omp-h2 { font-family: var(--font-serif); font-weight: 500; font-size: var(--text-h2); line-height: var(--lh-snug); letter-spacing: var(--track-head); color: var(--text-primary); }
+.omp-h3 { font-family: var(--font-serif); font-weight: 560; font-size: var(--text-h3); line-height: var(--lh-snug); letter-spacing: -0.01em; color: var(--text-primary); }
+.omp-h4 { font-family: var(--font-sans); font-weight: 600; font-size: var(--text-h4); line-height: var(--lh-normal); color: var(--text-primary); }
+
+.omp-lead { font-family: var(--font-serif); font-weight: 400; font-size: var(--text-body-lg); line-height: var(--lh-reading); color: var(--text-secondary); }
+.omp-body { font-family: var(--font-serif); font-weight: 400; font-size: var(--text-body); line-height: var(--lh-reading); color: var(--text-primary); }
+.omp-body-sans { font-family: var(--font-sans); font-weight: 400; font-size: var(--text-small); line-height: var(--lh-normal); color: var(--text-secondary); }
+.omp-caption { font-family: var(--font-sans); font-weight: 400; font-size: var(--text-caption); line-height: var(--lh-normal); color: var(--text-tertiary); }
+
+/* Kicker — the uppercase section/topic label */
+.omp-kicker {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-micro);
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+/* Mono data label — timestamps, source codes, figures */
+.omp-mono {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--text-caption);
+  letter-spacing: 0.02em;
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Big figures always use mono + tabular numerals */
+.omp-figure {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}

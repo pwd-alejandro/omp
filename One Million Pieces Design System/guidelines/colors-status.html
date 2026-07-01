@@ -1,0 +1,32 @@
+<!-- @dsCard group="Colors" viewport="700x160" name="Sequential & status" subtitle="Vermillion intensity ramp + status hues" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-page); padding: 24px; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing:.08em; text-transform:uppercase; color: var(--text-faint); margin-bottom: 8px; }
+  .row { display: flex; gap: 6px; margin-bottom: 18px; }
+  .seq { flex: 1; height: 44px; border-radius: var(--radius-xs); }
+  .st { flex: 1; height: 44px; border-radius: var(--radius-xs); display:flex; align-items:flex-end; padding:6px; }
+  .stn { font-family: var(--font-sans); font-size: 11px; font-weight:600; color: #fff; }
+</style>
+</head>
+<body>
+  <div class="lbl">Sequential — intensity</div>
+  <div class="row">
+    <div class="seq" style="background:var(--seq-1)"></div>
+    <div class="seq" style="background:var(--seq-2)"></div>
+    <div class="seq" style="background:var(--seq-3)"></div>
+    <div class="seq" style="background:var(--seq-4)"></div>
+    <div class="seq" style="background:var(--seq-5)"></div>
+  </div>
+  <div class="lbl">Status</div>
+  <div class="row" style="margin-bottom:0;">
+    <div class="st" style="background:var(--status-positive)"><span class="stn">Positive</span></div>
+    <div class="st" style="background:var(--status-caution)"><span class="stn">Caution</span></div>
+    <div class="st" style="background:var(--status-negative)"><span class="stn">Negative</span></div>
+  </div>
+</body>
+</html>

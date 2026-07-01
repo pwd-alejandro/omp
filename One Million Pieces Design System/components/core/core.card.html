@@ -1,0 +1,51 @@
+<!-- @dsCard group="Components" viewport="700x220" name="Core — Button, Tag, Badge" subtitle="Actions, kickers and status chips" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-page); padding: 26px 30px; font-family: var(--font-sans); }
+  .h { font-family: var(--font-mono); font-size: 10px; letter-spacing:.08em; text-transform:uppercase; color: var(--text-faint); margin: 0 0 12px; }
+  .grp { margin-bottom: 22px; }
+  .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .btn { font-family: var(--font-sans); font-weight:600; font-size:15px; letter-spacing:.01em; line-height:1; padding:10px 18px; border:1px solid transparent; border-radius: var(--radius-sm); cursor:pointer; }
+  .primary { background: var(--action-primary-bg); color: var(--action-primary-fg); }
+  .secondary { background: transparent; color: var(--text-primary); border-color: var(--ink-900); }
+  .ghost { background: transparent; color: var(--text-primary); }
+  .link { background:none; border:none; color: var(--text-accent); border-bottom:2px solid var(--vermillion-600); padding:0 0 2px; border-radius:0; }
+  .kicker { font-family:var(--font-sans); font-weight:600; font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
+  .badge { display:inline-flex; align-items:center; gap:6px; font-family:var(--font-sans); font-weight:600; font-size:11.5px; letter-spacing:.04em; text-transform:uppercase; line-height:1; padding:5px 9px; border-radius:var(--radius-pill); border:1px solid; }
+  .dot { width:6px; height:6px; border-radius:999px; }
+</style>
+</head>
+<body>
+  <div class="grp">
+    <p class="h">Button</p>
+    <div class="row">
+      <button class="btn primary">Read the analysis</button>
+      <button class="btn secondary">Share</button>
+      <button class="btn ghost">Save</button>
+      <button class="btn link">See methodology</button>
+      <button class="btn primary" style="opacity:.45;cursor:not-allowed;">Disabled</button>
+    </div>
+  </div>
+  <div class="grp">
+    <p class="h">Tag (kicker)</p>
+    <div class="row">
+      <span class="kicker" style="color:var(--text-accent)">Investigation · Housing</span>
+      <span class="kicker" style="color:var(--text-primary)">Data desk</span>
+      <span class="kicker" style="color:var(--text-tertiary)">Analysis</span>
+    </div>
+  </div>
+  <div class="grp" style="margin-bottom:0;">
+    <p class="h">Badge</p>
+    <div class="row">
+      <span class="badge" style="color:var(--vermillion-700);border-color:var(--vermillion-200);background:var(--vermillion-100);"><span class="dot" style="background:var(--vermillion-600)"></span>Live</span>
+      <span class="badge" style="color:var(--text-secondary);border-color:var(--border-default);background:var(--surface-card);">Analysis</span>
+      <span class="badge" style="color:#33502a;border-color:#c3d3b8;background:#e9f0e2;">Verified</span>
+      <span class="badge" style="color:#8a271d;border-color:#e6c0bb;background:#f6dfdb;">Disputed</span>
+    </div>
+  </div>
+</body>
+</html>

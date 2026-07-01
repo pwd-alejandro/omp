@@ -1,0 +1,93 @@
+/* One Million Pieces — Colour system  (Ledger direction)
+   Warm ink on paper, one vermillion action colour, a categorical data palette.
+   Rule: product UI references SEMANTIC aliases, never primitives directly. */
+
+:root {
+  /* ---- Primitives ---------------------------------------------------- */
+
+  /* Warm neutral ramp — paper (light) → ink (dark) */
+  --paper-0:   #FCFAF4;   /* lightest lift — cards, raised surfaces */
+  --paper-50:  #F7F3EA;   /* base paper — the page */
+  --paper-100: #F0EBDE;   /* inset / sunk surfaces */
+  --paper-200: #E4DDCE;   /* hairline borders, dividers */
+  --paper-300: #D4CBB7;   /* default borders */
+  --paper-400: #B7AD97;   /* strong borders, disabled ink */
+
+  --ink-300: #A39C8D;     /* faint labels */
+  --ink-400: #8A857B;     /* tertiary text */
+  --ink-500: #57534A;     /* secondary text */
+  --ink-700: #3B372F;     /* strong body */
+  --ink-900: #1B1712;     /* primary ink — near-black, warm */
+
+  /* Vermillion — the single action / brand accent */
+  --vermillion-100: #F6E1DB;
+  --vermillion-200: #EEC3B7;
+  --vermillion-500: #D8492E;
+  --vermillion-600: #C63A22;   /* accent default */
+  --vermillion-700: #A62D18;   /* hover / pressed */
+  --vermillion-800: #82220F;
+
+  /* Categorical data palette — for charts, keep order stable */
+  --data-vermillion: #C63A22;
+  --data-teal:       #1B5E7A;
+  --data-ochre:      #C9992A;
+  --data-olive:      #4A6B3E;
+  --data-plum:       #6E4B63;
+  --data-sky:        #5E8BB0;
+  --data-clay:       #A6603A;
+  --data-gray:       #8A8377;
+
+  /* Sequential ramp — vermillion (for heatmaps / intensity) */
+  --seq-1: #F6E1DB;
+  --seq-2: #EDB9A8;
+  --seq-3: #E08765;
+  --seq-4: #D8492E;
+  --seq-5: #A62D18;
+
+  /* Status */
+  --green-600:  #4A6B3E;
+  --amber-600:  #C9992A;
+  --red-600:    #B23A2E;
+
+  /* ---- Semantic aliases (use these) ---------------------------------- */
+
+  /* Surfaces */
+  --surface-page:     var(--paper-50);
+  --surface-card:     var(--paper-0);
+  --surface-inset:    var(--paper-100);
+  --surface-ink:      var(--ink-900);   /* inverted / footer blocks */
+
+  /* Text */
+  --text-primary:     var(--ink-900);
+  --text-secondary:   var(--ink-500);
+  --text-tertiary:    var(--ink-400);
+  --text-faint:       var(--ink-300);
+  --text-accent:      var(--vermillion-600);
+  --text-inverted:    var(--paper-50);
+
+  /* Borders / rules */
+  --border-subtle:    var(--paper-200);
+  --border-default:   var(--paper-300);
+  --border-strong:    var(--ink-900);
+  --rule-accent:      var(--vermillion-600);
+
+  /* Interactive — primary (vermillion) */
+  --action-primary-bg:        var(--vermillion-600);
+  --action-primary-bg-hover:  var(--vermillion-700);
+  --action-primary-bg-press:  var(--vermillion-800);
+  --action-primary-fg:        var(--paper-0);
+
+  /* Interactive — secondary (ink outline on paper) */
+  --action-secondary-bg:        transparent;
+  --action-secondary-bg-hover:  var(--paper-100);
+  --action-secondary-border:    var(--ink-900);
+  --action-secondary-fg:        var(--ink-900);
+
+  /* Focus */
+  --focus-ring: var(--vermillion-600);
+
+  /* Status semantic */
+  --status-positive: var(--green-600);
+  --status-caution:  var(--amber-600);
+  --status-negative: var(--red-600);
+}

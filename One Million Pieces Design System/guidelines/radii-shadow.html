@@ -1,0 +1,38 @@
+<!-- @dsCard group="Spacing" viewport="700x200" name="Radii, rules & shadow" subtitle="Crisp corners, hairline rules, sparse shadow" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-page); padding: 26px 32px; font-family: var(--font-sans); }
+  .grid { display: flex; gap: 28px; align-items: flex-start; }
+  .col { display: flex; gap: 14px; }
+  .box { width: 58px; height: 58px; background: var(--surface-card); border: 1px solid var(--border-default); display:flex; align-items:flex-end; justify-content:center; }
+  .lab { font-family: var(--font-mono); font-size: 9.5px; color: var(--text-tertiary); padding-bottom:4px; }
+  .h { font-family: var(--font-mono); font-size: 10px; letter-spacing:.08em; text-transform:uppercase; color: var(--text-faint); margin-bottom: 12px; }
+  .sec { display:flex; flex-direction:column; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="sec">
+      <div class="h">Radii</div>
+      <div class="col">
+        <div class="box" style="border-radius:var(--radius-xs)"><span class="lab">2</span></div>
+        <div class="box" style="border-radius:var(--radius-sm)"><span class="lab">4</span></div>
+        <div class="box" style="border-radius:var(--radius-md)"><span class="lab">6</span></div>
+        <div class="box" style="border-radius:var(--radius-lg)"><span class="lab">10</span></div>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="h">Shadow</div>
+      <div class="col">
+        <div class="box" style="border-color:transparent;box-shadow:var(--shadow-card)"><span class="lab">card</span></div>
+        <div class="box" style="border-color:transparent;box-shadow:var(--shadow-raised)"><span class="lab">raised</span></div>
+        <div class="box" style="border-color:transparent;box-shadow:var(--shadow-elevated)"><span class="lab">elev</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

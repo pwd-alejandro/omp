@@ -1,0 +1,267 @@
+<!-- @dsCard group="Homepage" viewport="1280x940" -->
+<!-- @startingPoint section="Homepage" subtitle="One Million Pieces front page" viewport="1280x940" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Million Pieces</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--surface-page); color: var(--text-primary); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+
+  /* Utility bar */
+  .util { border-bottom: 1px solid var(--border-subtle); }
+  .util-in { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .03em; color: var(--text-tertiary); }
+  .util-in .r { display: flex; gap: 20px; align-items: center; }
+  .util-in .r a:hover { color: var(--text-accent); }
+
+  /* Masthead */
+  .masthead { text-align: center; padding: 26px 0 20px; }
+  .mh-lockup { display: inline-flex; align-items: center; gap: 18px; }
+  .mh-word { font-family: var(--font-serif); font-weight: 560; font-size: 46px; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
+  rect.a { fill: var(--vermillion-600); } rect.i { fill: var(--ink-900); }
+  .mh-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--text-tertiary); margin-top: 12px; }
+
+  /* Section nav */
+  nav.sec { border-top: 2px solid var(--ink-900); border-bottom: 1px solid var(--border-default); }
+  .sec-in { display: flex; justify-content: center; gap: 30px; padding: 11px 0; }
+  .sec-in a { font-family: var(--font-sans); font-weight: 600; font-size: 13px; letter-spacing: .01em; color: var(--text-primary); padding-bottom: 2px; border-bottom: 2px solid transparent; }
+  .sec-in a:hover { color: var(--text-accent); border-color: var(--vermillion-600); }
+  .sec-in a.live { color: var(--text-accent); }
+
+  /* Kickers / headings */
+  .kicker { font-family: var(--font-sans); font-weight: 600; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-accent); }
+  .kicker.ink { color: var(--text-primary); }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; padding: 34px 0 40px; border-bottom: 1px solid var(--border-default); }
+  .hero h1 { font-family: var(--font-serif); font-weight: 460; font-size: 52px; line-height: 1.02; letter-spacing: -0.025em; margin: 14px 0 16px; }
+  .hero .dek { font-family: var(--font-serif); font-size: 19px; line-height: 1.5; color: var(--text-secondary); margin: 0 0 20px; max-width: 34ch; }
+  .byline { display: flex; align-items: center; gap: 12px; }
+  .byline .n { font-family: var(--font-sans); font-weight: 600; font-size: 13.5px; }
+  .byline .m { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-tertiary); margin-top: 3px; }
+
+  /* Chart card */
+  .chartcard { background: var(--surface-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 22px 24px; box-shadow: var(--shadow-card); }
+  .chart-title { font-family: var(--font-sans); font-weight: 600; font-size: 14px; }
+  .chart-sub { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--text-tertiary); margin-top: 3px; }
+  .src { font-family: var(--font-mono); font-size: 10px; letter-spacing: .04em; text-transform: uppercase; color: var(--text-faint); margin-top: 14px; }
+
+  /* Columns */
+  .cols3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; padding: 34px 0; }
+  .story .k { margin-bottom: 8px; }
+  .story h3 { font-family: var(--font-serif); font-weight: 540; font-size: 21px; line-height: 1.14; letter-spacing: -0.012em; margin: 0 0 8px; }
+  .story h3:hover { text-decoration: underline; text-decoration-color: var(--vermillion-600); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+  .story p { font-family: var(--font-serif); font-size: 14px; line-height: 1.5; color: var(--text-secondary); margin: 0; }
+  .story .meta { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--text-tertiary); margin-top: 10px; }
+  .thumb { width: 100%; aspect-ratio: 3/2; border-radius: var(--radius-sm); margin-bottom: 12px; background: var(--surface-inset); position: relative; overflow: hidden; }
+  .divider { border-left: 1px solid var(--border-subtle); }
+
+  /* By the numbers strip */
+  .numbers { border-top: 3px solid var(--vermillion-600); padding: 26px 0 34px; }
+  .numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 18px; }
+  .stat .v { font-family: var(--font-mono); font-weight: 500; font-size: 44px; line-height: .95; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .stat .l { font-family: var(--font-sans); font-size: 13px; color: var(--text-secondary); margin-top: 8px; line-height: 1.35; }
+  .stat .d { font-family: var(--font-mono); font-size: 12px; font-weight: 600; }
+
+  /* Department */
+  .dept { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; padding: 34px 0; border-top: 1px solid var(--border-default); }
+  .rule-h { display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--ink-900); padding-top: 10px; margin-bottom: 18px; }
+  .rule-h h2 { font-family: var(--font-serif); font-weight: 600; font-size: 19px; margin: 0; letter-spacing: -0.01em; }
+  .rule-h .all { font-family: var(--font-sans); font-weight: 600; font-size: 12.5px; color: var(--text-accent); }
+  .brief { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border-subtle); }
+  .brief .num { font-family: var(--font-mono); font-size: 12px; color: var(--text-faint); font-weight: 500; padding-top: 3px; }
+  .brief h4 { font-family: var(--font-serif); font-weight: 500; font-size: 17px; line-height: 1.25; margin: 0 0 4px; }
+  .brief h4:hover { color: var(--text-accent); }
+  .brief .m { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .03em; text-transform: uppercase; color: var(--text-tertiary); }
+
+  /* Footer */
+  footer { background: var(--surface-ink); color: var(--text-inverted); margin-top: 20px; }
+  .foot-in { max-width: 1180px; margin: 0 auto; padding: 44px 40px 40px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+  footer .fw { font-family: var(--font-serif); font-weight: 560; font-size: 22px; letter-spacing: -0.015em; display: flex; align-items: center; gap: 12px; }
+  footer p { font-family: var(--font-serif); font-size: 14px; line-height: 1.55; color: rgba(247,243,234,.62); margin: 14px 0 0; max-width: 30ch; }
+  .fcol h5 { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: rgba(247,243,234,.5); margin: 0 0 14px; }
+  .fcol a { display: block; font-family: var(--font-sans); font-size: 13.5px; color: rgba(247,243,234,.85); padding: 5px 0; }
+  .fcol a:hover { color: var(--vermillion-500); }
+  .subrow { display: flex; gap: 8px; margin-top: 16px; border: 1px solid rgba(247,243,234,.22); border-radius: var(--radius-sm); padding: 5px; }
+  .subrow input { flex: 1; background: transparent; border: none; outline: none; color: var(--text-inverted); font-family: var(--font-sans); font-size: 13.5px; padding: 8px 10px; }
+  .subrow input::placeholder { color: rgba(247,243,234,.4); }
+  .subrow button { font-family: var(--font-sans); font-weight: 600; font-size: 13.5px; padding: 8px 16px; border: none; border-radius: var(--radius-xs); background: var(--vermillion-600); color: #fff; cursor: pointer; }
+  .colophon { border-top: 1px solid rgba(247,243,234,.14); font-family: var(--font-mono); font-size: 11px; color: rgba(247,243,234,.45); padding: 16px 0; text-align: center; letter-spacing: .03em; }
+</style>
+</head>
+<body>
+
+  <!-- Utility bar -->
+  <div class="util"><div class="wrap"><div class="util-in">
+    <span>Tuesday, 1 July 2026 · Edition No. 412</span>
+    <span class="r"><a href="#">The Ledger ↗</a><a href="#">Sign in</a><a href="#" style="color:var(--text-accent);font-weight:500;">Subscribe</a></span>
+  </div></div></div>
+
+  <!-- Masthead -->
+  <div class="wrap"><div class="masthead">
+    <div class="mh-lockup">
+      <svg width="50" height="50" viewBox="0 0 42 42"><rect class="i" x="0" y="0" width="9" height="9"/><rect class="i" x="11" y="0" width="9" height="9"/><rect class="i" x="33" y="0" width="9" height="9"/><rect class="i" x="0" y="11" width="9" height="9"/><rect class="a" x="11" y="11" width="9" height="9"/><rect class="i" x="22" y="11" width="9" height="9"/><rect class="i" x="11" y="22" width="9" height="9"/><rect class="a" x="22" y="22" width="9" height="9"/><rect class="i" x="33" y="22" width="9" height="9"/><rect class="i" x="0" y="33" width="9" height="9"/><rect class="i" x="22" y="33" width="9" height="9"/><rect class="a" x="33" y="33" width="9" height="9"/></svg>
+      <span class="mh-word">One Million Pieces</span>
+    </div>
+    <div class="mh-tag">Collect the pieces · Understand the whole</div>
+  </div></div>
+
+  <!-- Section nav -->
+  <nav class="sec"><div class="wrap"><div class="sec-in">
+    <a href="#" class="live">Investigations</a>
+    <a href="#">Data</a>
+    <a href="#">Politics</a>
+    <a href="#">Climate</a>
+    <a href="#">Economy</a>
+    <a href="#">Science</a>
+    <a href="#">Culture</a>
+    <a href="#">The Ledger</a>
+  </div></div></nav>
+
+  <div class="wrap">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <span class="kicker">Investigation · Housing</span>
+        <h1>The 4.2 million records behind an eviction crisis</h1>
+        <p class="dek">We collected every filing in the county since 2016. The paper record tells a story the official numbers left out — and names the landlords behind it.</p>
+        <div class="byline">
+          <div>
+            <div class="n">By Dana Okonkwo &amp; R. Mehta</div>
+            <div class="m">DATA DESK · 12 MIN READ · UPDATED 2H AGO</div>
+          </div>
+        </div>
+      </div>
+      <div class="chartcard">
+        <div class="chart-title">Eviction filings by year</div>
+        <div class="chart-sub">County-wide · 2016–2024</div>
+        <svg width="100%" height="180" viewBox="0 0 380 180" preserveAspectRatio="none" style="margin-top:16px;display:block;">
+          <line x1="0" y1="179" x2="380" y2="179" stroke="var(--border-default)" stroke-width="1"/>
+          <line x1="0" y1="120" x2="380" y2="120" stroke="var(--border-subtle)" stroke-width="1"/>
+          <line x1="0" y1="60" x2="380" y2="60" stroke="var(--border-subtle)" stroke-width="1"/>
+          <g>
+            <rect x="6"  y="120" width="34" height="59"  fill="#D9CFB8"/>
+            <rect x="48" y="112" width="34" height="67"  fill="#D9CFB8"/>
+            <rect x="90" y="104" width="34" height="75"  fill="#D9CFB8"/>
+            <rect x="132" y="96" width="34" height="83"  fill="#D9CFB8"/>
+            <rect x="174" y="78" width="34" height="101" fill="#D9CFB8"/>
+            <rect x="216" y="56" width="34" height="123" fill="var(--vermillion-500)"/>
+            <rect x="258" y="30" width="34" height="149" fill="var(--vermillion-600)"/>
+            <rect x="300" y="14" width="34" height="165" fill="var(--vermillion-600)"/>
+            <rect x="342" y="40" width="34" height="139" fill="var(--vermillion-600)"/>
+          </g>
+        </svg>
+        <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary);margin-top:6px;">
+          <span>2016</span><span>2018</span><span>2020</span><span>2022</span><span>2024</span>
+        </div>
+        <div class="src">Source: county clerk filings · analysis by OMP</div>
+      </div>
+    </section>
+
+    <!-- Secondary stories -->
+    <section class="cols3">
+      <article class="story">
+        <div class="thumb"></div>
+        <div class="k"><span class="kicker">Analysis · Elections</span></div>
+        <h3><a href="#">How 30,000 precincts actually voted</a></h3>
+        <p>Not the map you were shown on election night — a block-by-block reassembly of the real result.</p>
+        <div class="meta">15 min · Interactive</div>
+      </article>
+      <article class="story divider" style="padding-left:34px;">
+        <div class="k"><span class="kicker">Climate</span></div>
+        <h3><a href="#">Every heat record broken this decade, mapped</a></h3>
+        <p>Nine hundred stations. Forty years of readings. A clear, uncomfortable trend line across the country.</p>
+        <div class="meta">8 min · Data</div>
+        <div style="border-top:1px solid var(--border-subtle);margin-top:18px;padding-top:16px;">
+          <div class="k"><span class="kicker ink">Economy</span></div>
+          <h3 style="font-size:18px;margin-top:6px;"><a href="#">The quiet consolidation of the grocery aisle</a></h3>
+          <div class="meta">6 min read</div>
+        </div>
+      </article>
+      <article class="story divider" style="padding-left:34px;">
+        <div class="k"><span class="kicker">Science</span></div>
+        <h3><a href="#">What a million protein folds taught one lab</a></h3>
+        <p>Inside the dataset quietly reshaping how new medicines are found.</p>
+        <div class="meta">10 min read</div>
+        <div style="border-top:1px solid var(--border-subtle);margin-top:18px;padding-top:16px;">
+          <div class="k"><span class="kicker ink">Culture</span></div>
+          <h3 style="font-size:18px;margin-top:6px;"><a href="#">We read 40 years of front pages. Here's what changed.</a></h3>
+          <div class="meta">7 min read</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- By the numbers -->
+    <section class="numbers">
+      <div class="rule-h" style="border:none;padding:0;margin:0;">
+        <span class="kicker">By the numbers · This week</span>
+      </div>
+      <div class="numbers-grid">
+        <div class="stat">
+          <div class="v">4.2M</div>
+          <div class="l">Eviction filings analysed since 2016</div>
+          <div class="d" style="color:var(--status-negative);margin-top:8px;">+46% since 2019</div>
+        </div>
+        <div class="stat">
+          <div class="v">+1.4°</div>
+          <div class="l">Average warming across 900 stations</div>
+          <div class="d" style="color:var(--status-negative);margin-top:8px;">since 1985</div>
+        </div>
+        <div class="stat">
+          <div class="v">30,041</div>
+          <div class="l">Precincts reassembled from raw returns</div>
+          <div class="d" style="color:var(--text-tertiary);margin-top:8px;">100% of the state</div>
+        </div>
+        <div class="stat">
+          <div class="v">63%</div>
+          <div class="l">Of mergers cleared without a second look</div>
+          <div class="d" style="color:var(--status-positive);margin-top:8px;">↑ from 51%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Department: Investigations + The Ledger -->
+    <section class="dept">
+      <div>
+        <div class="rule-h"><h2>The Ledger</h2><a class="all" href="#">See all →</a></div>
+        <div class="brief"><span class="num">01</span><div><h4><a href="#">A hospital chain billed the dead. We found 11,400 cases.</a></h4><div class="m">Investigations · 14 min</div></div></div>
+        <div class="brief"><span class="num">02</span><div><h4><a href="#">The subsidy that never reached a single farm it named</a></h4><div class="m">Economy · 9 min</div></div></div>
+        <div class="brief"><span class="num">03</span><div><h4><a href="#">Mapping every lead pipe the city said it had replaced</a></h4><div class="m">Data · 11 min</div></div></div>
+        <div class="brief" style="border:none;"><span class="num">04</span><div><h4><a href="#">Who owns the block? A year tracing shell companies</a></h4><div class="m">Housing · 18 min</div></div></div>
+      </div>
+      <div>
+        <div class="rule-h"><h2>Most read</h2></div>
+        <div class="brief" style="padding-top:0;"><span class="num" style="color:var(--vermillion-600);">1</span><div><h4 style="font-size:16px;"><a href="#">The chart that explains the rent spike in one line</a></h4></div></div>
+        <div class="brief"><span class="num" style="color:var(--vermillion-600);">2</span><div><h4 style="font-size:16px;"><a href="#">Why your grocery bill and the shipping index moved together</a></h4></div></div>
+        <div class="brief"><span class="num" style="color:var(--vermillion-600);">3</span><div><h4 style="font-size:16px;"><a href="#">A field guide to reading a poll like a statistician</a></h4></div></div>
+        <div class="brief" style="border:none;"><span class="num" style="color:var(--vermillion-600);">4</span><div><h4 style="font-size:16px;"><a href="#">The one dataset every city keeps getting wrong</a></h4></div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="foot-in">
+      <div>
+        <div class="fw">
+          <svg width="30" height="30" viewBox="0 0 42 42"><rect style="fill:var(--paper-50)" x="0" y="0" width="9" height="9"/><rect style="fill:var(--paper-50)" x="11" y="0" width="9" height="9"/><rect style="fill:var(--paper-50)" x="33" y="0" width="9" height="9"/><rect style="fill:var(--paper-50)" x="0" y="11" width="9" height="9"/><rect class="a" x="11" y="11" width="9" height="9"/><rect style="fill:var(--paper-50)" x="22" y="11" width="9" height="9"/><rect style="fill:var(--paper-50)" x="11" y="22" width="9" height="9"/><rect class="a" x="22" y="22" width="9" height="9"/><rect style="fill:var(--paper-50)" x="33" y="22" width="9" height="9"/><rect style="fill:var(--paper-50)" x="0" y="33" width="9" height="9"/><rect style="fill:var(--paper-50)" x="22" y="33" width="9" height="9"/><rect class="a" x="33" y="33" width="9" height="9"/></svg>
+          One Million Pieces
+        </div>
+        <p>Rigorous, data-driven journalism. We collect the pieces so you can see the whole.</p>
+        <div class="subrow"><input placeholder="your@email.com"><button>Subscribe</button></div>
+      </div>
+      <div class="fcol"><h5>Sections</h5><a href="#">Investigations</a><a href="#">Data</a><a href="#">Politics</a><a href="#">Climate</a><a href="#">Economy</a></div>
+      <div class="fcol"><h5>The newsroom</h5><a href="#">About</a><a href="#">Methodology</a><a href="#">Our data</a><a href="#">Ethics</a><a href="#">Corrections</a></div>
+      <div class="fcol"><h5>Follow</h5><a href="#">The daily brief</a><a href="#">RSS</a><a href="#">Bluesky</a><a href="#">Signal tips</a></div>
+    </div>
+    <div class="colophon">© 2026 One Million Pieces · Set in Newsreader &amp; Libre Franklin · Data in Spline Sans Mono</div>
+  </footer>
+
+</body>
+</html>

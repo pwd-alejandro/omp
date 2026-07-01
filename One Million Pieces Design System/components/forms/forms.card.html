@@ -1,0 +1,35 @@
+<!-- @dsCard group="Components" viewport="700x210" name="Forms — Input, SubscribeField" subtitle="Inputs and the newsletter conversion unit" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; background: var(--surface-page); padding: 26px 30px; }
+  .cols { display:grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items:start; }
+  .lbl { display:block; font-family:var(--font-sans); font-weight:600; font-size:12.5px; color:var(--text-secondary); margin-bottom:6px; }
+  .field { display:flex; align-items:center; background:var(--surface-card); border:1px solid var(--border-default); border-radius:var(--radius-sm); padding:0 12px; }
+  .field.focus { border-color:var(--vermillion-600); box-shadow:0 0 0 3px var(--vermillion-100); }
+  input { flex:1; border:none; outline:none; background:transparent; font-family:var(--font-sans); font-size:14.5px; color:var(--text-primary); padding:11px 0; }
+  .hint { font-family:var(--font-sans); font-size:12px; color:var(--text-tertiary); margin-top:6px; }
+  .sub { display:flex; gap:8px; border:1px solid var(--vermillion-600); box-shadow:0 0 0 3px var(--vermillion-100); border-radius:var(--radius-sm); padding:5px; background:var(--surface-card); }
+  .sub input { padding:8px 10px; }
+  .btn { font-family:var(--font-sans); font-weight:600; font-size:15px; padding:10px 18px; border:none; border-radius:var(--radius-sm); background:var(--action-primary-bg); color:var(--action-primary-fg); cursor:pointer; }
+  .note { font-family:var(--font-mono); font-size:11px; color:var(--text-tertiary); margin-top:8px; }
+</style>
+</head>
+<body>
+  <div class="cols">
+    <div>
+      <label class="lbl">Email address</label>
+      <div class="field"><input value="dana@onemillionpieces.org"></div>
+      <div class="hint">We only use this to send the daily brief.</div>
+    </div>
+    <div>
+      <label class="lbl">Subscribe</label>
+      <div class="sub"><input placeholder="your@email.com"><button class="btn">Subscribe</button></div>
+      <div class="note">One email a week · unsubscribe anytime</div>
+    </div>
+  </div>
+</body>
+</html>
