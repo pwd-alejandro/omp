@@ -27,11 +27,18 @@ async function fetchFeedXml(url: string): Promise<string> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   try {
-    const res = await fetch(url, {
+    // Cache-bust so each build hits the origin feed directly — never a stale copy
+    // held by an intermediary or a just-published feed that hasn't propagated. A
+    // unique query string forces a fresh response; no-cache headers reinforce it.
+    const bustUrl = `${url}${url.includes("?") ? "&" : "?"}_cb=${Date.now()}`;
+    const res = await fetch(bustUrl, {
       signal: controller.signal,
+      cache: "no-store",
       headers: {
         "user-agent": USER_AGENT,
         accept: "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+        "cache-control": "no-cache",
+        pragma: "no-cache",
       },
     });
     if (!res.ok) throw new Error(`Feed responded with HTTP ${res.status}`);
