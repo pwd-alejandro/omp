@@ -31,24 +31,25 @@ Goal: real Substack posts flowing into the site as data.
 - [ ] Write a couple of tests against a saved sample feed (free + paid item).
 - [ ] 🟢 **Verify:** a debug page lists all posts pulled from the live feed with correct fields.
 
-## Day 2 — Design system & core layout
+## Day 2 — Wire in the design system & core layout
 
-Goal: the brand exists in code.
+Goal: the existing "Ledger" design system lives in the Astro app.
 
-- [ ] Ingest logo/image assets into `src/assets/brand/`.
-- [ ] Extract palette + typography from the logo; confirm with Alejandro.
-- [ ] Build the token config (colors, type scale, spacing, motion, breakpoints); wire dark mode.
-- [ ] Build header/nav (with Subscribe button) and footer.
-- [ ] Build the `.prose` style scope for article HTML.
-- [ ] 🟢 **Verify:** a styled shell with real nav/footer renders on desktop + mobile.
+- [ ] Read `.claude/skills/one-million-pieces-design/readme.md`; invoke the `one-million-pieces-design` skill.
+- [ ] Copy the design system's `styles.css` + `tokens/` + `assets/logos/` into the app; link `styles.css`.
+- [ ] Self-host the fonts (swap Google Fonts `@import` for `@font-face`) — see [`04`](./04-design-system.md).
+- [ ] Add Lucide for UI icons; wire the mosaic mark as logo/favicon.
+- [ ] Port header/nav (masthead + 2px ink rule, Subscribe button) and footer from `ui_kits/homepage`.
+- [ ] Build the `.omp-body`/`.prose` scope for Substack article HTML.
+- [ ] 🟢 **Verify:** a styled shell (correct type, paper/ink, vermillion accent) renders on desktop + mobile.
 
 ## Day 3 — Homepage & article index
 
 Goal: readers can browse the writing.
 
-- [ ] Build the article card component (cover, title, excerpt, date, tag, reading time).
-- [ ] Build `/` — hero + featured/latest feed + subscribe CTA.
-- [ ] Build `/articles` — responsive grid of recent posts.
+- [ ] Port the design system's `ArticleCard` (cover, title, excerpt, date, `Tag`, reading time).
+- [ ] Build `/` from `ui_kits/homepage/index.html` — masthead, story grid, "By the numbers" strip, subscribe CTA.
+- [ ] Build `/articles` — responsive grid of recent posts using `ArticleCard` + `RuleHeading`.
 - [ ] Handle empty/edge states (no image, long titles, missing tags).
 - [ ] 🟢 **Verify:** home and index render real Substack posts, look on-brand, responsive.
 
@@ -56,7 +57,7 @@ Goal: readers can browse the writing.
 
 Goal: readers can read (or be handed off correctly).
 
-- [ ] Build `/article/[slug]`: title, byline, date, hero, prose body, end-of-article subscribe CTA.
+- [ ] Build `/article/[slug]`: title, `Byline`, date, hero, `.omp-body` prose, `PullQuote`/`SourceChip` styling, end-of-article `SubscribeField` CTA.
 - [ ] Branch on `isPaywalled`: full text vs. teaser + "Subscribe to read on Substack" CTA.
 - [ ] Single-source the Substack/subscribe link (one config value).
 - [ ] Build `/about`, `/subscribe`, and an on-brand `/404`.

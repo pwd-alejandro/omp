@@ -1,7 +1,7 @@
 # 04 — Design System
 
 **A complete design system already exists** in this repo:
-[`One Million Pieces Design System/`](../One%20Million%20Pieces%20Design%20System/). It is the
+[`.claude/skills/one-million-pieces-design/`](../.claude/skills/one-million-pieces-design/) (auto-loaded as a skill). It is the
 **source of truth** for every visual and copy decision. This doc explains *what it is* and *how
 it maps onto the website* — it does not redefine the brand.
 

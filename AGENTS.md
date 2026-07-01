@@ -39,8 +39,8 @@ raise it there — don't silently diverge.
 
 ## 3. The design system is law
 
-A complete, self-contained design system lives in **`One Million Pieces Design System/`**
-(the "Ledger" direction). It is the source of truth for every visual decision. See
+A complete, self-contained design system lives in **`.claude/skills/one-million-pieces-design/`**
+(the "Ledger" direction), auto-loaded by Claude Code as a skill. It is the source of truth for every visual decision. See
 [`SKILLS.md`](./SKILLS.md) for how to invoke it as a skill, and
 [`docs/04-design-system.md`](./docs/04-design-system.md) for how it maps onto this site.
 
@@ -63,8 +63,8 @@ Non-negotiable brand rules (from the design system's `readme.md`):
 ## 4. Stack & conventions (once code exists)
 
 - **Framework:** Astro + TypeScript. Static by default; interactivity/animation only as scoped Islands.
-- **Styling:** the design system's tokens (`One Million Pieces Design System/tokens/*` via
-  `styles.css`) + `omp-*` utility classes. Tailwind may wrap these, but tokens are the source of truth.
+- **Styling:** the design system's tokens (`.claude/skills/one-million-pieces-design/tokens/*`
+  via `styles.css`) + `omp-*` utility classes. Tailwind may wrap these, but tokens are the source of truth.
 - **Content:** pulled from Substack RSS at build time. Ingestion is one isolated, tested module.
 - **Package manager:** pnpm. **Node:** 20+.
 - **Lint/format:** ESLint + Prettier, enforced in CI.

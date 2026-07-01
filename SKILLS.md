@@ -14,7 +14,7 @@ See [`AGENTS.md`](./AGENTS.md) for the overall operating manual.
 
 ### 1. `one-million-pieces-design` — the brand design system
 
-- **Location:** [`One Million Pieces Design System/SKILL.md`](./One%20Million%20Pieces%20Design%20System/SKILL.md)
+- **Location:** [`.claude/skills/one-million-pieces-design/SKILL.md`](./.claude/skills/one-million-pieces-design/SKILL.md) — auto-loaded by Claude Code (directory name matches the skill `name`).
 - **Use it when:** building *any* interface, page, component, mock, or asset for this site —
   production or throwaway. If you are choosing a colour, a font, spacing, a component, or
   writing UI copy, this skill applies.
@@ -23,7 +23,7 @@ See [`AGENTS.md`](./AGENTS.md) for the overall operating manual.
   (`components/`), foundation guideline cards (`guidelines/`), and full page kits
   (`ui_kits/homepage`, `ui_kits/newsletter`).
 - **How to use it (from the skill's own instructions):**
-  1. Read `One Million Pieces Design System/readme.md` first, then explore the files.
+  1. Read `.claude/skills/one-million-pieces-design/readme.md` first, then explore the files.
   2. Start from `styles.css` — link it, use the **semantic tokens** and `omp-*` classes.
   3. Reuse the components under `components/` and the layouts under `ui_kits/`.
   4. For production code: **copy assets into the app** and follow the rules as an expert.
@@ -31,10 +31,8 @@ See [`AGENTS.md`](./AGENTS.md) for the overall operating manual.
 - **Hard rules:** warm ink on paper; one vermillion action colour; Newsreader (read/headlines)
   + Libre Franklin (UI) + Spline Sans Mono (figures/metadata); data-viz as the primary medium;
   cite every data claim; **no emoji**. Reference semantic tokens, never raw hex.
-
-> **Recommended wiring:** to make this skill auto-discoverable by Claude Code, expose it under
-> `.claude/skills/` (copy or symlink the `One Million Pieces Design System/` directory there,
-> or move it and update references). Until then, invoke it by reading its `SKILL.md` directly.
+- **Paths:** the skill's files (`styles.css`, `tokens/`, `components/`, `ui_kits/`, `assets/`)
+  live under `.claude/skills/one-million-pieces-design/`.
 
 ---
 

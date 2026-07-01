@@ -32,6 +32,12 @@ feed and presents the writing in a custom, on-brand experience.
 | Content sync | GitHub Actions cron → fetch RSS → redeploy |
 | Source of truth | Substack RSS feed |
 
+## For agents & contributors
+
+- **[`AGENTS.md`](./AGENTS.md)** — operating manual for anyone (AI or human) working here. Read it first.
+- **[`SKILLS.md`](./SKILLS.md)** — catalogue of skills, incl. the brand design system.
+- **[`.claude/skills/one-million-pieces-design/`](./.claude/skills/one-million-pieces-design/)** — the complete "Ledger" design system (tokens, components, UI kits), auto-loaded as a skill. Source of truth for all visuals.
+
 ## Planning docs
 
 Everything is planned in [`/docs`](./docs). Start here:

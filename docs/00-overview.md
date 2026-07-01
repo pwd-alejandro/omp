@@ -43,7 +43,7 @@ per-article without a rewrite.
 | Framework | Astro | [02](./02-tech-stack.md) |
 | Hosting | Cloudflare Pages | [02](./02-tech-stack.md), [06](./06-setup-and-deployment.md) |
 | Sync | GitHub Actions cron → rebuild | [03](./03-content-sync.md) |
-| Design source | Provided logo/image files | [04](./04-design-system.md) |
+| Design source | Full "Ledger" design system in-repo (tokens, components, UI kits) | [04](./04-design-system.md) |
 | Domain split | Site on apex `onemillionpieces.com`; Substack on `read.` subdomain | [06](./06-setup-and-deployment.md) |
 
 ## Glossary
