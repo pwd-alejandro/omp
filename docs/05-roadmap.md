@@ -11,11 +11,11 @@ Legend: 🟢 = ship/verify milestone.
 
 Goal: an empty-but-real Astro site live on the internet at a temporary URL.
 
-- [ ] Confirm the Substack publication exists (or create it); record the exact **feed URL**.
-- [ ] Initialize Astro + TypeScript in this repo (`pnpm create astro`).
-- [ ] Add Tailwind (or set up CSS custom properties), ESLint, Prettier.
-- [ ] Commit a placeholder homepage.
-- [ ] Create a Cloudflare Pages project connected to this GitHub repo; enable auto-deploy on push.
+- [x] Confirm the Substack publication exists; record the exact **feed URL** (verified live 2026-07-01).
+- [x] Initialize Astro + TypeScript in this repo (manual scaffold; Astro 7).
+- [x] Set up CSS custom properties (design-system tokens copied into `src/styles/ds/`), ESLint, Prettier.
+- [x] Placeholder homepage rendering the brand (type, paper/ink, vermillion) — `src/pages/index.astro`.
+- [ ] Create a Cloudflare Pages project connected to this GitHub repo; enable auto-deploy on push. **← Alejandro (account action)**
 - [ ] 🟢 **Verify:** pushing to `main` deploys to a `*.pages.dev` URL.
 
 ## Day 1 — Content ingestion (the core)

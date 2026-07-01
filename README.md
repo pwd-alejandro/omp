@@ -25,12 +25,12 @@ feed and presents the writing in a custom, on-brand experience.
 
 ## Stack
 
-| Layer | Choice |
-|---|---|
-| Framework | [Astro](https://astro.build) (static, zero-JS-by-default, hybrid-ready) |
-| Hosting | [Cloudflare Pages](https://pages.cloudflare.com) |
-| Content sync | GitHub Actions cron → fetch RSS → redeploy |
-| Source of truth | Substack RSS feed |
+| Layer           | Choice                                                                  |
+| --------------- | ----------------------------------------------------------------------- |
+| Framework       | [Astro](https://astro.build) (static, zero-JS-by-default, hybrid-ready) |
+| Hosting         | [Cloudflare Pages](https://pages.cloudflare.com)                        |
+| Content sync    | GitHub Actions cron → fetch RSS → redeploy                              |
+| Source of truth | Substack RSS feed                                                       |
 
 ## For agents & contributors
 

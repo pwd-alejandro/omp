@@ -1,6 +1,6 @@
 # 02 — Tech Stack & Decisions
 
-Short, ADR-style records of *what* we chose and *why*, so future-you (and future
+Short, ADR-style records of _what_ we chose and _why_, so future-you (and future
 collaborators) don't re-litigate settled calls.
 
 ---
@@ -10,18 +10,20 @@ collaborators) don't re-litigate settled calls.
 **Chosen.** Alternatives considered: Next.js, Eleventy, plain HTML, Hugo.
 
 **Why Astro:**
+
 - Purpose-built for **content sites**. Ships **zero JavaScript by default** → excellent
   performance and SEO, which is exactly right for reading-heavy pages.
 - First-class **content collections** and built-in **RSS import/export** utilities.
 - **Islands architecture**: add React/Svelte/Vue components for rich interactivity or
-  animation *only where needed*, without shipping a framework to every page.
+  animation _only where needed_, without shipping a framework to every page.
 - Built-in **View Transitions** for smooth animated page-to-page navigation (near-free polish).
-- **Hybrid rendering**: routes can be static *or* server-rendered. This is our clean path to
+- **Hybrid rendering**: routes can be static _or_ server-rendered. This is our clean path to
   **paid-content gating later** without rewriting the site.
 
 **Why not the others:**
-- *Next.js*: great, but a heavier React-first model; more JS shipped by default; overkill for a content site until we actually need app-like behavior.
-- *Eleventy/Hugo*: excellent static generators, but weaker story for later interactivity/gating and a less pleasant component/animation path.
+
+- _Next.js_: great, but a heavier React-first model; more JS shipped by default; overkill for a content site until we actually need app-like behavior.
+- _Eleventy/Hugo_: excellent static generators, but weaker story for later interactivity/gating and a less pleasant component/animation path.
 
 **Consequence:** we get a fast static site now and a documented, no-rewrite path to paid + fully interactive later.
 
@@ -32,16 +34,19 @@ collaborators) don't re-litigate settled calls.
 **Chosen.** Alternatives: Vercel, Netlify, GCP, AWS.
 
 **Why Cloudflare Pages:**
+
 - Generous free tier; global edge CDN; free SSL; git-push deploys.
 - Built-in **cron/scheduled** capability to drive rebuilds.
 - Best fit for the static + scheduled-rebuild model.
 
 **Why not GCP/AWS (explicitly rejected):**
+
 - This is a content site, not an application. GCP/AWS would mean hand-assembling buckets,
   CDN, DNS, build pipelines, and IAM — days of plumbing and ongoing cost to host what is
   essentially a folder of HTML. Wrong tool for the job.
 
 **Why not Vercel (close runner-up):**
+
 - Excellent DX and ISR (auto-refreshing pages). Slightly pricier at scale. Documented as the
   fallback if we later prefer request-time freshness over scheduled rebuilds.
 
@@ -88,11 +93,11 @@ See [`04-design-system.md`](./04-design-system.md#motion--animation).
 
 ## Cost summary (v1)
 
-| Item | Cost |
-|---|---|
-| Domain registration | ~$10–20 / yr |
-| Cloudflare Pages | $0 (free tier) |
-| GitHub Actions | $0 (public repo / within free minutes) |
-| Substack | Free plan; 10% fee only if/when you charge for subscriptions |
-| Substack custom domain (optional, on-brand handoff) | one-time $50 |
-| **Total to launch** | **~$10–70 one-time + ~$15/yr** |
+| Item                                                | Cost                                                         |
+| --------------------------------------------------- | ------------------------------------------------------------ |
+| Domain registration                                 | ~$10–20 / yr                                                 |
+| Cloudflare Pages                                    | $0 (free tier)                                               |
+| GitHub Actions                                      | $0 (public repo / within free minutes)                       |
+| Substack                                            | Free plan; 10% fee only if/when you charge for subscriptions |
+| Substack custom domain (optional, on-brand handoff) | one-time $50                                                 |
+| **Total to launch**                                 | **~$10–70 one-time + ~$15/yr**                               |

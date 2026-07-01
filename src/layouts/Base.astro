@@ -1,0 +1,35 @@
+---
+// Base HTML skeleton for every page.
+// Loads the One Million Pieces design system (warm ink on paper, one vermillion
+// accent, Newsreader / Libre Franklin / Spline Sans Mono). See docs/04-design-system.md.
+import "../styles/ds/styles.css";
+import "../styles/site.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "One Million Pieces",
+  description = "An independent, data-driven newsroom. To understand anything, you have to collect all the pieces.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

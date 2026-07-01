@@ -36,15 +36,15 @@ per-article without a rewrite.
 
 ## Confirmed decisions
 
-| Decision | Choice | Where it's detailed |
-|---|---|---|
-| Content model | All free now; forgiving for paid later | [03](./03-content-sync.md) |
-| Reading experience | On-site rendering; Substack handoff acceptable for long/future-paid pieces at launch | [01](./01-architecture.md) |
-| Framework | Astro | [02](./02-tech-stack.md) |
-| Hosting | Cloudflare Pages | [02](./02-tech-stack.md), [06](./06-setup-and-deployment.md) |
-| Sync | GitHub Actions cron → rebuild | [03](./03-content-sync.md) |
-| Design source | Full "Ledger" design system in-repo (tokens, components, UI kits) | [04](./04-design-system.md) |
-| Domain split | Site on apex `onemillionpieces.com`; Substack on `read.` subdomain | [06](./06-setup-and-deployment.md) |
+| Decision           | Choice                                                                               | Where it's detailed                                          |
+| ------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| Content model      | All free now; forgiving for paid later                                               | [03](./03-content-sync.md)                                   |
+| Reading experience | On-site rendering; Substack handoff acceptable for long/future-paid pieces at launch | [01](./01-architecture.md)                                   |
+| Framework          | Astro                                                                                | [02](./02-tech-stack.md)                                     |
+| Hosting            | Cloudflare Pages                                                                     | [02](./02-tech-stack.md), [06](./06-setup-and-deployment.md) |
+| Sync               | GitHub Actions cron → rebuild                                                        | [03](./03-content-sync.md)                                   |
+| Design source      | Full "Ledger" design system in-repo (tokens, components, UI kits)                    | [04](./04-design-system.md)                                  |
+| Domain split       | Site on apex `onemillionpieces.com`; Substack on `read.` subdomain                   | [06](./06-setup-and-deployment.md)                           |
 
 ## Glossary
 

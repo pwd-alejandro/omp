@@ -42,11 +42,14 @@
 ## Components
 
 ### 1. Substack (external backend)
+
 Owns content, money, and email. We never replicate this. We only **read** from it via RSS
 and **link** to it for subscribing/paying and (optionally) reading long pieces.
 
 ### 2. Content ingestion (build-time)
+
 A small module in this repo that:
+
 - fetches the RSS XML,
 - parses it (title, link, `pubDate`, author, categories, `content:encoded`, enclosure/first image),
 - detects truncated (paywalled) items via the trailing "Read more" / missing-body signal,
@@ -56,10 +59,12 @@ A small module in this repo that:
 See [`03-content-sync.md`](./03-content-sync.md) for the detail.
 
 ### 3. Astro site (this repo)
+
 Turns normalized content into pages. **Static by default.** Interactive/animated bits are
 opt-in Islands so the article text stays fast.
 
 ### 4. Cloudflare Pages (hosting)
+
 Builds on push and serves the output from the global edge. A **cron trigger / scheduled
 GitHub Action** re-runs the build so new posts appear without anyone touching git.
 
@@ -75,11 +80,11 @@ button in Cloudflare (or re-running the Action) publishes instantly when needed.
 
 ## Rendering strategy (and the forgiving part)
 
-| Content type | v1 behavior | How it renders |
-|---|---|---|
-| Free post (all posts today) | Full article on our site | Static page from `content:encoded` |
-| Long free post | Optionally: excerpt on-site + "continue on Substack" | Static page + handoff link |
-| Paid post (future) | Teaser on-site + "Subscribe to read" CTA | Static page from teaser; Astro route can later become server-rendered to gate |
+| Content type                | v1 behavior                                          | How it renders                                                                |
+| --------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Free post (all posts today) | Full article on our site                             | Static page from `content:encoded`                                            |
+| Long free post              | Optionally: excerpt on-site + "continue on Substack" | Static page + handoff link                                                    |
+| Paid post (future)          | Teaser on-site + "Subscribe to read" CTA             | Static page from teaser; Astro route can later become server-rendered to gate |
 
 Because free vs. paid is a **per-post flag we already detect from RSS**, adding premium
 content later is a rendering branch — not an architectural change. The same template shows

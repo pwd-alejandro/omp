@@ -26,12 +26,12 @@ the ingestion module's test fixture so we develop against real content, not lore
 
 ### Hard limits to design around
 
-| Limit | Implication | Our handling |
-|---|---|---|
-| Only ~recent posts in feed | No full archive from RSS alone | v1 shows recent posts; full archive is a deferred enhancement (see [`07`](./07-open-questions-and-risks.md)) |
-| Paid posts truncated | Can't render full paid content on our site | Show teaser + "Subscribe to read on Substack" CTA |
-| No push webhook | Can't be notified of new posts | Poll on a schedule |
-| Feed reflects current state | Edits/deletes propagate on next fetch | Rebuild picks up changes automatically |
+| Limit                       | Implication                                | Our handling                                                                                                 |
+| --------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| Only ~recent posts in feed  | No full archive from RSS alone             | v1 shows recent posts; full archive is a deferred enhancement (see [`07`](./07-open-questions-and-risks.md)) |
+| Paid posts truncated        | Can't render full paid content on our site | Show teaser + "Subscribe to read on Substack" CTA                                                            |
+| No push webhook             | Can't be notified of new posts             | Poll on a schedule                                                                                           |
+| Feed reflects current state | Edits/deletes propagate on next fetch      | Rebuild picks up changes automatically                                                                       |
 
 ## Sync mechanism: scheduled rebuild
 
@@ -62,17 +62,17 @@ A single, well-tested module (`src/content/substack.ts` or similar) does the fol
 3. **Normalize** each `<item>` into a typed object:
    ```ts
    type Post = {
-     title: string
-     slug: string          // derived, URL-safe, stable
-     substackUrl: string   // the canonical link on Substack
-     publishedAt: Date
-     author: string
-     tags: string[]
-     excerpt: string       // clean summary for cards/meta
-     bodyHtml: string      // sanitized content:encoded
-     coverImage?: string   // first image / enclosure
-     isPaywalled: boolean  // detected (see below)
-   }
+     title: string;
+     slug: string; // derived, URL-safe, stable
+     substackUrl: string; // the canonical link on Substack
+     publishedAt: Date;
+     author: string;
+     tags: string[];
+     excerpt: string; // clean summary for cards/meta
+     bodyHtml: string; // sanitized content:encoded
+     coverImage?: string; // first image / enclosure
+     isPaywalled: boolean; // detected (see below)
+   };
    ```
 4. **Detect paywalled/truncated** items: check for the trailing "Read more" marker / a
    subscribe-prompt block / an unusually short body relative to the summary. Set `isPaywalled`.

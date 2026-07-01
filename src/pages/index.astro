@@ -1,0 +1,112 @@
+---
+import Base from "../layouts/Base.astro";
+
+// Day 0 placeholder homepage — proves the brand renders end to end (type, paper/ink,
+// vermillion accent, mono metadata). Real homepage arrives on Day 3 from the design
+// system's ui_kits/homepage. Content links to the first live Substack piece.
+const firstPiece =
+  "https://onemillionpieces.substack.com/p/we-are-free-son-they-are-bombing";
+---
+
+<Base>
+  <main class="masthead">
+    <img
+      class="mark"
+      src="/omp-mark.svg"
+      alt="One Million Pieces"
+      width="56"
+      height="56"
+    />
+    <p class="omp-kicker">Independent · Data-driven</p>
+    <h1 class="omp-display headline">One story, a million pieces.</h1>
+    <p class="omp-lead dek">
+      A newsroom that treats journalism as a science — collecting the records, visualising
+      the data, and caring about nothing but the facts. To begin to understand anything,
+      you have to collect all the pieces.
+    </p>
+
+    <div class="actions">
+      <a class="btn-primary" href={firstPiece}>Read the first piece</a>
+      <a class="btn-secondary" href="https://onemillionpieces.substack.com/subscribe">
+        Subscribe
+      </a>
+    </div>
+
+    <p class="omp-mono meta">DAY 0 · SITE SCAFFOLD · ONEMILLIONPIECES.COM</p>
+  </main>
+</Base>
+
+<style>
+  .masthead {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: var(--space-20) var(--gutter) var(--space-16);
+    text-align: center;
+  }
+
+  .mark {
+    display: block;
+    margin: 0 auto var(--space-8);
+  }
+
+  .headline {
+    margin: var(--space-3) 0 var(--space-6);
+  }
+
+  .dek {
+    margin: 0 auto var(--space-10);
+    max-width: 34rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-16);
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    font-family: var(--font-sans);
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-small);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-sm);
+    transition:
+      background var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .btn-primary {
+    background: var(--action-primary-bg);
+    color: var(--action-primary-fg);
+    border: 1px solid var(--action-primary-bg);
+  }
+  .btn-primary:hover {
+    background: var(--action-primary-bg-hover);
+    text-decoration: none;
+  }
+  .btn-primary:active {
+    background: var(--action-primary-bg-press);
+    transform: scale(0.98);
+  }
+
+  .btn-secondary {
+    background: var(--action-secondary-bg);
+    color: var(--action-secondary-fg);
+    border: 1px solid var(--action-secondary-border);
+  }
+  .btn-secondary:hover {
+    background: var(--action-secondary-bg-hover);
+    text-decoration: none;
+  }
+  .btn-secondary:active {
+    transform: scale(0.98);
+  }
+
+  .meta {
+    color: var(--text-faint);
+    letter-spacing: var(--track-label);
+  }
+</style>

@@ -23,16 +23,16 @@ If anything here conflicts with a doc, the doc wins for detail — but update th
 
 ## 2. Read before you act
 
-| Order | Doc | What it gives you |
-|---|---|---|
-| 1 | [`docs/00-overview.md`](./docs/00-overview.md) | Vision, goals, non-goals, glossary |
-| 2 | [`docs/01-architecture.md`](./docs/01-architecture.md) | System design, data flow, failure modes |
-| 3 | [`docs/02-tech-stack.md`](./docs/02-tech-stack.md) | Every stack decision + rationale |
-| 4 | [`docs/03-content-sync.md`](./docs/03-content-sync.md) | **The Substack ↔ site sync — the core** |
-| 5 | [`docs/04-design-system.md`](./docs/04-design-system.md) | How to build with the brand |
-| 6 | [`docs/05-roadmap.md`](./docs/05-roadmap.md) | Day-by-day build plan + current status |
-| 7 | [`docs/06-setup-and-deployment.md`](./docs/06-setup-and-deployment.md) | Accounts, domain, DNS, deploy, env |
-| 8 | [`docs/07-open-questions-and-risks.md`](./docs/07-open-questions-and-risks.md) | Undecided things, risks, decision log |
+| Order | Doc                                                                            | What it gives you                       |
+| ----- | ------------------------------------------------------------------------------ | --------------------------------------- |
+| 1     | [`docs/00-overview.md`](./docs/00-overview.md)                                 | Vision, goals, non-goals, glossary      |
+| 2     | [`docs/01-architecture.md`](./docs/01-architecture.md)                         | System design, data flow, failure modes |
+| 3     | [`docs/02-tech-stack.md`](./docs/02-tech-stack.md)                             | Every stack decision + rationale        |
+| 4     | [`docs/03-content-sync.md`](./docs/03-content-sync.md)                         | **The Substack ↔ site sync — the core** |
+| 5     | [`docs/04-design-system.md`](./docs/04-design-system.md)                       | How to build with the brand             |
+| 6     | [`docs/05-roadmap.md`](./docs/05-roadmap.md)                                   | Day-by-day build plan + current status  |
+| 7     | [`docs/06-setup-and-deployment.md`](./docs/06-setup-and-deployment.md)         | Accounts, domain, DNS, deploy, env      |
+| 8     | [`docs/07-open-questions-and-risks.md`](./docs/07-open-questions-and-risks.md) | Undecided things, risks, decision log   |
 
 **Do not invent architecture.** Decisions are logged in doc 07. If you think one is wrong,
 raise it there — don't silently diverge.
@@ -72,11 +72,11 @@ Non-negotiable brand rules (from the design system's `readme.md`):
 
 ## 5. Source of content (confirmed)
 
-| Thing | Value |
-|---|---|
-| Publication | `https://onemillionpieces.substack.com` |
-| **RSS feed** | `https://onemillionpieces.substack.com/feed` |
-| Subscribe | `https://onemillionpieces.substack.com/subscribe` |
+| Thing                        | Value                                                                                                             |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Publication                  | `https://onemillionpieces.substack.com`                                                                           |
+| **RSS feed**                 | `https://onemillionpieces.substack.com/feed`                                                                      |
+| Subscribe                    | `https://onemillionpieces.substack.com/subscribe`                                                                 |
 | Test article (first fixture) | [`/p/we-are-free-son-they-are-bombing`](https://onemillionpieces.substack.com/p/we-are-free-son-they-are-bombing) |
 
 Verified 2026-07-01: feed live, 1 item, **full body** (free post), author "Alejandro Lozada Cortés".
@@ -95,5 +95,10 @@ Save a snapshot of this feed as the test fixture for the ingestion module.
 
 ## 7. Current status
 
-📋 **Planning complete; no site code yet.** Design system in place, feed verified. Next up:
-**Day 0** in [`docs/05-roadmap.md`](./docs/05-roadmap.md) (scaffold Astro + deploy a hello-world to Cloudflare Pages).
+🏗 **Day 0 in progress.** Astro 7 + TypeScript scaffolded; design-system tokens wired into
+`src/styles/ds/`; placeholder homepage (`src/pages/index.astro`) renders the brand; ESLint +
+Prettier configured; `pnpm build` / `lint` / `format:check` all green. **Remaining:** connect
+the repo to Cloudflare Pages (account action) and verify the `*.pages.dev` deploy. Then Day 1
+(RSS ingestion) in [`docs/05-roadmap.md`](./docs/05-roadmap.md).
+
+Commands: `pnpm dev` (local), `pnpm build` (→ `dist/`), `pnpm lint`, `pnpm format`.

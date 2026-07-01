@@ -15,7 +15,7 @@ See [`AGENTS.md`](./AGENTS.md) for the overall operating manual.
 ### 1. `one-million-pieces-design` — the brand design system
 
 - **Location:** [`.claude/skills/one-million-pieces-design/SKILL.md`](./.claude/skills/one-million-pieces-design/SKILL.md) — auto-loaded by Claude Code (directory name matches the skill `name`).
-- **Use it when:** building *any* interface, page, component, mock, or asset for this site —
+- **Use it when:** building _any_ interface, page, component, mock, or asset for this site —
   production or throwaway. If you are choosing a colour, a font, spacing, a component, or
   writing UI copy, this skill applies.
 - **What it contains:** design tokens (`tokens/colors.css`, `fonts.css`, `typography.css`,
@@ -28,9 +28,9 @@ See [`AGENTS.md`](./AGENTS.md) for the overall operating manual.
   3. Reuse the components under `components/` and the layouts under `ui_kits/`.
   4. For production code: **copy assets into the app** and follow the rules as an expert.
   5. For throwaway visuals: copy assets out and produce static HTML the user can view.
-- **Hard rules:** warm ink on paper; one vermillion action colour; Newsreader (read/headlines)
-  + Libre Franklin (UI) + Spline Sans Mono (figures/metadata); data-viz as the primary medium;
-  cite every data claim; **no emoji**. Reference semantic tokens, never raw hex.
+- **Hard rules:** warm ink on paper; one vermillion action colour; Newsreader for reading and
+  headlines, Libre Franklin for UI, Spline Sans Mono for figures/metadata; data-viz as the
+  primary medium; cite every data claim; **no emoji**. Reference semantic tokens, never raw hex.
 - **Paths:** the skill's files (`styles.css`, `tokens/`, `components/`, `ui_kits/`, `assets/`)
   live under `.claude/skills/one-million-pieces-design/`.
 
