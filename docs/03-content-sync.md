@@ -109,10 +109,28 @@ Substack subscriber), that specific route becomes server-rendered in Astro — t
 
 ## Images
 
-- Substack image URLs are hotlinkable but we should be deliberate: for performance and
-  resilience, consider downloading/caching cover images at build time and serving them via
-  Cloudflare, or at minimum lazy-load and set explicit dimensions to avoid layout shift.
-- Decide during the design phase; not a launch blocker.
+**Cover image = the RSS `<enclosure>` (verified 2026-07).** Substack exposes a post's
+cover/featured image (the one set in the post's settings, used for the email header and social
+card) as the `<enclosure>`. When a post has **no** cover, the enclosure falls back to the
+publication avatar (the same image as the channel `<image>`, e.g. a 144×144 logo). So:
+
+- `pickCover()` (in `normalize.ts`) uses the enclosure **only when its Substack image UUID
+  differs from the publication avatar's** — otherwise it's the avatar fallback and we ignore it.
+- Fallback order: real enclosure cover → first in-body `<img>` → none (a text-forward card,
+  which suits the data-first brand).
+
+**Author workflow to control covers:** set the post's cover/featured image in Substack — it
+flows through automatically. To have a cover that does **not** appear in the article body, set
+it as the post's cover/social-preview image but don't also insert it inline. (If the same image
+is both the cover and the lead body image, we de-duplicate it on the article page so the hero
+isn't shown twice — Day 4.) No custom tagging convention is needed.
+
+**Body images** render inline: sanitized, `loading="lazy"`, `decoding="async"`. Substack wraps
+them in `captioned-image-container`/`figure`/`figcaption` (preserved) with `<a class="image-link">`
+to the full-size image (hardened with `rel`/`target`). `srcset` is dropped (we keep `src`).
+
+- Still open (perf/resilience, not a launch blocker): optionally cache cover images at build
+  time and serve via Cloudflare, and set explicit dimensions to avoid layout shift. Decide on Day 6.
 
 ## Outgoing RSS (our own feed)
 

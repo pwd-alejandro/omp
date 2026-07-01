@@ -3,7 +3,9 @@ import { parseFeed } from "./parse";
 import { normalizeItem, slugFromLink, detectPaywall } from "./normalize";
 import sampleXml from "./__fixtures__/substack-feed.sample.xml?raw";
 
-const post = normalizeItem(parseFeed(sampleXml)[0]);
+const posts = parseFeed(sampleXml).map(normalizeItem);
+const post = posts.find((p) => p.slug === "we-are-free-son-they-are-bombing")!;
+const withCover = posts.find((p) => p.slug.startsWith("sweden-wanted-fewer"))!;
 
 describe("normalizeItem — the real free post", () => {
   it("derives a stable slug from the Substack link", () => {
@@ -36,6 +38,19 @@ describe("normalizeItem — the real free post", () => {
 
   it("is not paywalled (a free post)", () => {
     expect(post.isPaywalled).toBe(false);
+  });
+
+  it("has no cover (no body image, enclosure is just the avatar)", () => {
+    expect(post.coverImage).toBeUndefined();
+  });
+});
+
+describe("normalizeItem — cover image detection", () => {
+  it("uses the Substack cover (enclosure) when it isn't the publication avatar", () => {
+    expect(withCover.coverImage).toBeDefined();
+    // The Sweden post's cover is Substack image e472f385…
+    expect(withCover.coverImage).toContain("e472f385");
+    expect(withCover.coverImage).toContain("substackcdn.com");
   });
 });
 

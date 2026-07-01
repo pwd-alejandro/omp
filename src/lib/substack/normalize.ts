@@ -57,10 +57,30 @@ export function detectPaywall(
   return bodyPlain.length < 600 && bodyPlain.length <= descriptionPlain.length + 40;
 }
 
-/** First <img> src in the raw content, if any (used as the cover image). */
+/** First <img> src in the raw content, if any. */
 function firstImage(rawContentHtml: string): string | undefined {
   const match = rawContentHtml.match(/<img[^>]+src=["']([^"']+)["']/i);
   return match?.[1];
+}
+
+/** The Substack image UUID embedded in a CDN URL (…/images/<uuid>_<dims>.png). */
+function imageUuid(url: string | undefined): string | undefined {
+  return url?.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i)?.[0];
+}
+
+/**
+ * Choose the cover image. Substack exposes a post's cover/featured image as the
+ * RSS <enclosure>; when a post has no cover, the enclosure is just the publication
+ * avatar (same image as the channel logo), which we reject. Falls back to the first
+ * in-body image, else undefined (a text-forward card, which suits the brand).
+ */
+export function pickCover(raw: RawItem): string | undefined {
+  const enclosureId = imageUuid(raw.enclosureUrl);
+  const avatarId = imageUuid(raw.publicationImageUrl);
+  if (raw.enclosureUrl && enclosureId && enclosureId !== avatarId) {
+    return raw.enclosureUrl;
+  }
+  return firstImage(raw.contentHtml ?? "");
 }
 
 export function normalizeItem(raw: RawItem): Post {
@@ -90,7 +110,7 @@ export function normalizeItem(raw: RawItem): Post {
     tags: raw.categories.map((c) => toPlainText(c).trim()).filter(Boolean),
     excerpt,
     bodyHtml,
-    coverImage: firstImage(rawContent),
+    coverImage: pickCover(raw),
     isPaywalled: detectPaywall(rawContent, bodyPlain, descriptionPlain),
   };
 }

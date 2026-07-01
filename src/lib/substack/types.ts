@@ -39,5 +39,10 @@ export interface RawItem {
   description?: string;
   contentHtml?: string;
   categories: string[];
+  /** The post's cover/featured image (Substack exposes it as <enclosure>). May
+   *  instead be the publication avatar when the post has no cover. */
   enclosureUrl?: string;
+  /** The publication's logo/avatar URL (channel <image>), used to recognize when
+   *  an enclosure is just the avatar fallback rather than a real cover. */
+  publicationImageUrl?: string;
 }

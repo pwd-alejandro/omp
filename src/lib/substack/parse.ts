@@ -47,6 +47,8 @@ export function parseFeed(xml: string): RawItem[] {
   }
 
   const items: unknown[] = Array.isArray(channel.item) ? channel.item : [];
+  // Publication logo/avatar — enclosures fall back to this when a post has no cover.
+  const publicationImageUrl = text((channel.image as Record<string, unknown>)?.url);
 
   return items.map((raw): RawItem => {
     const item = raw as Record<string, unknown>;
@@ -64,6 +66,7 @@ export function parseFeed(xml: string): RawItem[] {
       contentHtml: text(item["content:encoded"]),
       categories,
       enclosureUrl: attr(item.enclosure, "url"),
+      publicationImageUrl,
     };
   });
 }

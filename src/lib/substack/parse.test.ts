@@ -4,21 +4,26 @@ import sampleXml from "./__fixtures__/substack-feed.sample.xml?raw";
 
 describe("parseFeed", () => {
   const items = parseFeed(sampleXml);
+  const caracas = items.find((i) => i.link?.includes("we-are-free-son"))!;
 
-  it("finds the single item in the sample feed", () => {
-    expect(items).toHaveLength(1);
+  it("finds every item in the sample feed", () => {
+    expect(items.length).toBe(2);
   });
 
   it("extracts the core namespaced/CDATA fields", () => {
-    const item = items[0];
-    expect(item.link).toBe(
+    expect(caracas.link).toBe(
       "https://onemillionpieces.substack.com/p/we-are-free-son-they-are-bombing"
     );
-    expect(item.creator).toBe("Alejandro Lozada Cortés");
-    expect(item.pubDate).toContain("2026");
-    expect(item.title).toContain("We are free, son");
-    expect(item.contentHtml).toContain("Alberto Barrios");
-    expect(item.description).toContain("Alberto Barrios");
+    expect(caracas.creator).toBe("Alejandro Lozada Cortés");
+    expect(caracas.pubDate).toContain("2026");
+    expect(caracas.title).toContain("We are free, son");
+    expect(caracas.contentHtml).toContain("Alberto Barrios");
+    expect(caracas.description).toContain("Alberto Barrios");
+  });
+
+  it("captures enclosure and publication image for cover detection", () => {
+    expect(caracas.enclosureUrl).toContain("substackcdn.com");
+    expect(caracas.publicationImageUrl).toContain("substackcdn.com");
   });
 
   it("throws on input that isn't an RSS document", () => {
